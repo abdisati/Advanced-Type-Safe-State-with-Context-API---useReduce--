@@ -24,6 +24,8 @@ export function useTimersContext() {
   if (!timersCtx) {
     throw new Error("TimersContext is null - that should not be the case!");
   }
+
+  return timersCtx;
 }
 
 type TimersContextProviderProps = {
