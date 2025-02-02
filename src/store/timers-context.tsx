@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import { useContext } from "react";
 
-type Timer = {
+export type Timer = {
   name: string;
   duration: number;
 };
