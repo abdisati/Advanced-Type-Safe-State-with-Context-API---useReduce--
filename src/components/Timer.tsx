@@ -7,7 +7,7 @@ export default function Timer(props: TimerProps) {
   const interval = useRef<number | null>(null);
   const [remainingTime, setRemaining] = useState(duration * 1000);
 
-  if (remainingTime <= 0 && interval.current !== null) {
+  if (remainingTime <= 0 && interval.current) {
     clearInterval(interval.current);
   }
 
@@ -26,7 +26,7 @@ export default function Timer(props: TimerProps) {
     <Container as="article">
       <h2>{name}</h2>
       <p>
-        <progress max={duration} value={remainingTime} />
+        <progress max={duration} value={remainingTime / 1000} />
       </p>
       <p>{formattedRemainingTime}</p>
     </Container>
