@@ -12,13 +12,12 @@ export default function Timer(props: TimerProps) {
   }
 
   useEffect(() => {
-    interval.current = setInterval(() => {
+    const timer = setInterval(() => {
       setRemaining((prevTime) => prevTime - 50);
     }, 50);
+    interval.current = timer;
     return () => {
-      if (interval.current !== null) {
-        clearInterval(interval.current);
-      }
+      clearInterval(timer);
     };
   }, []);
 
