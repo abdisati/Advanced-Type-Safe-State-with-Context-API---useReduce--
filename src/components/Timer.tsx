@@ -19,7 +19,12 @@ export default function Timer(props: TimerProps) {
     let timer: number;
     if (isRunning) {
       timer = setInterval(() => {
-        setRemaining((prevTime) => prevTime - 50);
+        setRemaining((prevTime) => {
+          if (prevTime <= 0) {
+            return 0;
+          }
+          return prevTime - 50;
+        });
       }, 50);
       interval.current = timer;
     } else if (interval.current !== null) {
